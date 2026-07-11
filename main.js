@@ -63,19 +63,30 @@ function canvasToContent(canvas, areas, scale) {
 	canvas.height = diff[1] * scale;
 }
 
+/// element []Product
+function renderFinderResults(div, products) {
+	for (let i = 0; i < products.length; i ++) {
+		let product = products[i];
+		let p = document.createElement("p");
+		p.textContent = product.name;
+		div.append(p);
+	}
+}
+
 function main() {
 	const selected = new Reference(0);
 	const canvas = document.getElementById("myCanvas");
 	const ctx = canvas.getContext("2d");
 	const finderInput = document.getElementById("finderInput");
+	const finderResults = document.getElementById("finderResults");
 
 	let scale = 0.25;
 
 	canvasToContent(canvas, areas, scale)
 	render(areas, canvas, ctx, selected, scale);
 
-	changeSelected(areas, selected, 5, canvas, ctx, scale);
-	changeSelected(areas, selected, 9, canvas, ctx, scale);
+	changeSelected(areas, selected, 6, canvas, ctx, scale);
+	renderFinderResults(finderResults, areas[selected.ref].products);
 }
 
 // last thing that should be executed #######################
