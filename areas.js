@@ -262,6 +262,15 @@ let areas = [
 	new Area(1066, 538, 56, 20, "kaese", [
 	
 	]),
+	new Area(1242, 458, 34, 42, "frischeteke", [
+	
+	]),
+	new Area(1348, 458, 20, 56, "grillfleisch", [
+	
+	]),
+	new Area(1408, 456, 22, 56, "bratwurst", [
+	
+	]),
 	new Area(1124, 538, 242, 20, "wurst", [
 	
 	]),
@@ -311,15 +320,6 @@ let areas = [
 	
 	]),
 	new Area(1342, 318, 58, 20, "fillinchen", [
-	
-	]),
-	new Area(1242, 458, 34, 42, "frischeteke", [
-	
-	]),
-	new Area(1348, 458, 20, 56, "grillfleisch", [
-	
-	]),
-	new Area(1408, 456, 22, 56, "bratwurst", [
 	
 	]),
 	new Area(1490, 146, 22, 58, "butter", [
