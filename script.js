@@ -8,16 +8,6 @@ function round(v, r) {
     return Math.round(v / r) * r;
 }
 
-let rounding = 2;
-rectangles = rectangles.map((r) => {
-    return {
-        "x": round(r.x, rounding),
-        "y": round(r.y, rounding),
-        "w": round(r.w, rounding),
-        "h": round(r.h, rounding),
-    };
-});
-
 let selected = 0;
 function render() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
