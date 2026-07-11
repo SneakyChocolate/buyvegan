@@ -63,14 +63,24 @@ function canvasToContent(canvas, areas, scale) {
 	canvas.height = diff[1] * scale;
 }
 
-/// element []Product
-function renderFinderResults(div, products) {
-	for (let i = 0; i < products.length; i ++) {
-		let product = products[i];
-		let p = document.createElement("p");
-		p.textContent = product.name;
-		div.append(p);
+/// []Area string fn(number, Product)
+function findProducts(areas, filter, fn) {
+	for (let i = 0; i < areas.length; i ++) {
+		let area = areas[i];
+		for (let i2 = 0; i2 < area.products.length; i2 ++) {
+			let product = area.products[i2];
+			fn(i, product);
+		}
 	}
+}
+
+/// element []Area string
+function renderFinderResults(div, areas, filter) {
+	findProducts(areas, filter, (i, product) => {
+		let p = document.createElement("p");
+		p.textContent = `${product.name} (${i})`;
+		div.append(p);
+	})
 }
 
 function main() {
@@ -78,7 +88,7 @@ function main() {
 	const canvas = document.getElementById("myCanvas");
 	const ctx = canvas.getContext("2d");
 	const finderInput = document.getElementById("finderInput");
-	const finderResults = document.getElementById("finderResults");
+	const finderResultsDiv = document.getElementById("finderResults");
 
 	let scale = 0.25;
 
@@ -86,7 +96,7 @@ function main() {
 	render(areas, canvas, ctx, selected, scale);
 
 	changeSelected(areas, selected, 6, canvas, ctx, scale);
-	renderFinderResults(finderResults, areas[selected.ref].products);
+	renderFinderResults(finderResultsDiv, areas, finderInput.value);
 }
 
 // last thing that should be executed #######################
