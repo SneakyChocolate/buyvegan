@@ -95,7 +95,7 @@ function main() {
 	canvasToContent(canvas, areas, scale)
 	render(areas, canvas, ctx, selected, scale);
 
-	changeSelected(areas, selected, 0, canvas, ctx, scale);
+	changeSelected(areas, selected, 35, canvas, ctx, scale);
 	renderFinderResults(finderResultsDiv, areas, finderInput.value);
 
 	document.getElementById("inc").onclick = () => {

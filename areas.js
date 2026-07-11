@@ -24,6 +24,12 @@ class Product {
 	static glutenfree(name) {
 		return new Product(name, false, true);
 	}
+
+	/// creates a vegan and glutenfree product
+	/// string -> Product
+	static none(name) {
+		return new Product(name, false, false);
+	}
 }
 
 class Area {
@@ -267,6 +273,15 @@ let areas = [
 	new Area(1408, 456, 22, 56, "bratwurst", [
 	
 	]),
+	new Area(1276, 402, 60, 22, "muesli", [
+	
+	]),
+	new Area(1336, 402, 62, 24, "muesli", [
+	
+	]),
+	new Area(1396, 402, 56, 24, "cornflakes", [
+	
+	]),
 	new Area(1124, 538, 242, 20, "wurst", [
 	
 	]),
@@ -285,22 +300,10 @@ let areas = [
 	new Area(1276, 376, 60, 26, "tee", [
 	
 	]),
-	new Area(1276, 402, 60, 22, "muesli", [
-	
-	]),
-	new Area(1336, 402, 62, 24, "muesli", [
-	
-	]),
-	new Area(1396, 402, 56, 24, "cornflakes", [
-	
-	]),
 	new Area(1394, 380, 58, 20, "kafffe", [
 	
 	]),
 	new Area(1336, 378, 60, 24, "tee", [
-	
-	]),
-	new Area(1276, 318, 22, 58, "sossen", [
 	
 	]),
 	new Area(1298, 318, 22, 58, "milch", [
@@ -316,6 +319,24 @@ let areas = [
 	
 	]),
 	new Area(1342, 318, 58, 20, "fillinchen", [
+	
+	]),
+	new Area(1342, 262, 56, 20, "mehl", [
+	
+	]),
+	new Area(1400, 260, 56, 22, "kuchen", [
+	
+	]),
+	new Area(1342, 240, 56, 20, "schokososse", [
+	
+	]),
+	new Area(1400, 240, 58, 20, "marmelade", [
+	
+	]),
+	new Area(1276, 240, 40, 20, "eier", [
+	
+	]),
+	new Area(1300, 262, 18, 56, "schlagsahne", [
 	
 	]),
 	new Area(1490, 146, 22, 58, "butter", [
@@ -345,25 +366,10 @@ let areas = [
 	new Area(1398, 154, 62, 20, "kuehl", [
 	
 	]),
-	new Area(1342, 262, 56, 20, "mehl", [
-	
-	]),
-	new Area(1400, 260, 56, 22, "kuchen", [
-	
-	]),
-	new Area(1342, 240, 56, 20, "schokososse", [
-	
-	]),
-	new Area(1400, 240, 58, 20, "marmelade", [
-	
-	]),
-	new Area(1276, 240, 40, 20, "eier", [
-	
-	]),
-	new Area(1300, 262, 18, 56, "schlagsahne", [
-	
-	]),
 	new Area(1274, 260, 22, 60, "ketchup", [
+	
+	]),
+	new Area(1276, 318, 22, 58, "sossen", [
 	
 	]),
 	new Area(1264, 140, 24, 60, "alkohol", [
