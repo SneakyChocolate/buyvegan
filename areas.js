@@ -370,6 +370,12 @@ let areas = [
 	new Area(1398, 154, 62, 20, "kuehl", [
 	
 	]),
+	new Area(1290, 140, 20, 60, "eingelegtes", [
+	
+	]),
+	new Area(1286, 80, 22, 60, "wein", [
+	
+	]),
 	new Area(1274, 260, 22, 60, "ketchup", [
 	
 	]),
@@ -379,13 +385,7 @@ let areas = [
 	new Area(1264, 140, 24, 60, "alkohol", [
 	
 	]),
-	new Area(1290, 140, 20, 60, "eingelegtes", [
-	
-	]),
 	new Area(1262, 80, 24, 60, "alkohol", [
-	
-	]),
-	new Area(1286, 80, 22, 60, "wein", [
 	
 	]),
 	new Area(1204, 60, 56, 20, "alkohol", [

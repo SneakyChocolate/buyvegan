@@ -101,6 +101,7 @@ function main() {
 	document.getElementById("inc").onclick = () => {
 		selected.ref += 1;
 		render(areas, canvas, ctx, selected, scale);
+		console.log(areas[selected.ref].description);
 	};
 }
 
