@@ -9,6 +9,26 @@ class Area {
 	}
 }
 
+function getMin(rectangles) {
+	let x = rectangles[0].x;
+	let y = rectangles[0].y;
+	rectangles.forEach(r => {
+		if (r.x < x) x = r.x;
+		if (r.y < y) y = r.y;
+	});
+	return [x,y];
+}
+
+function getMax(rectangles) {
+	let x = rectangles[0].x + rectangles[0].w;
+	let y = rectangles[0].y + rectangles[0].h;
+	rectangles.forEach(r => {
+		if (r.x + r.w > x) x = r.x + r.w;
+		if (r.y + r.h > y) y = r.y + r.h;
+	});
+	return [x,y];
+}
+
 let rectangles = [
   new Area(766, 462, 98, 22, "gebaeck", ""),
   new Area(868, 426, 18, 56, "brot", ""),
@@ -16,12 +36,12 @@ let rectangles = [
   new Area(948, 404, 54, 22, "kartoffelpuffer", ""),
   new Area(1000, 406, 62, 20, "vegan", ""),
   new Area(1064, 406, 52, 20, "obst", ""),
-  new Area(1118, 406, 54, 20, "obst", ""),
+  new Area(1118, 406, 54, 20, "obst", "Apfel, Weintrauben"),
   new Area(1174, 406, 54, 20, "nuesse", ""),
   new Area(930, 454, 20, 56, "sushi", ""),
   new Area(986, 452, 20, 56, "joghurt", ""),
   new Area(1048, 452, 22, 58, "tomaten", ""),
-  new Area(1108, 452, 18, 56, "banenen", ""),
+  new Area(1108, 452, 18, 56, "bananen", "Bananen"),
   new Area(1172, 452, 20, 56, "kartoffeln", ""),
   new Area(894, 536, 56, 20, "planzen", ""),
   new Area(950, 536, 58, 20, "weissbrot", ""),
@@ -165,6 +185,5 @@ let rectangles = [
   new Area(156, 220, 60, 24, "bier", ""),
   new Area(214, 222, 62, 20, "bier", "")
 ];
-
 
 
