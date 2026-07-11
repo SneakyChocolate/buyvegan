@@ -15,8 +15,8 @@ function render(areas, canvas, ctx, selected, scale) {
 			ctx.strokeStyle = "rgba(0, 255, 0, 1.0)"; 
 			ctx.fillStyle = "rgba(0, 255, 0, 0.5)";
 		} else {
-			ctx.strokeStyle = "rgba(255, 255, 255, 1.0)"; 
-			ctx.fillStyle = "rgba(255, 255, 255, 0.5)";
+			ctx.strokeStyle = "rgba(0, 0, 0, 1.0)"; 
+			ctx.fillStyle = "rgba(0, 0, 0, 0.5)";
 		}
 		ctx.fillRect(
 			rect.x * scale,
