@@ -63,20 +63,42 @@ function canvasToContent(canvas, areas, scale) {
 	canvas.height = diff[1] * scale;
 }
 
-/// []Area string fn(number, Product)
-function findProducts(areas, filter, fn) {
+/// []Area (fn(string) -> bool) fn(number, Product)
+function findProducts(areas, filterFn, fn) {
 	for (let i = 0; i < areas.length; i ++) {
 		let area = areas[i];
 		for (let i2 = 0; i2 < area.products.length; i2 ++) {
 			let product = area.products[i2];
-			fn(i, product);
+			if (filterFn(product.name)) {
+				fn(i, product);
+			}
 		}
 	}
 }
 
 /// element []Area string
 function renderFinderResults(div, areas, filter) {
-	findProducts(areas, filter, (i, product) => {
+	div.replaceChildren();
+	let filterFn = (name) => {
+		let simplifiedName = name
+			.toLowerCase()
+			.replaceAll("ä", "ae")
+			.replaceAll("ö", "oe")
+			.replaceAll("ü", "ue")
+			.replaceAll("ß", "ss")
+			.replaceAll(" ", "")
+		;
+		let simplifiedFilter = filter
+			.toLowerCase()
+			.replaceAll("ä", "ae")
+			.replaceAll("ö", "oe")
+			.replaceAll("ü", "ue")
+			.replaceAll("ß", "ss")
+			.replaceAll(" ", "")
+		;
+		return simplifiedName.includes(simplifiedFilter);
+	};
+	findProducts(areas, filterFn, (i, product) => {
 		let p = document.createElement("p");
 		let prefix = "";
 		if (product.vegan) {
@@ -109,6 +131,9 @@ function main() {
 		selected.ref += 1;
 		render(areas, canvas, ctx, selected, scale);
 		console.log(areas[selected.ref].description);
+	};
+	finderInput.oninput = (e) => {
+		renderFinderResults(finderResultsDiv, areas, finderInput.value);
 	};
 }
 
