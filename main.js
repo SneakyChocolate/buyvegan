@@ -98,7 +98,7 @@ function renderFinderResults(div, areas, filter) {
 		;
 		return simplifiedName.includes(simplifiedFilter);
 	};
-	findProducts(areas, filterFn, (i, product) => {
+	let renderFn = (i, product) => {
 		let p = document.createElement("p");
 		let prefix = "";
 		if (product.vegan) {
@@ -109,7 +109,8 @@ function renderFinderResults(div, areas, filter) {
 		}
 		p.textContent = `${prefix} ${product.name} (${i})`;
 		div.append(p);
-	})
+	};
+	findProducts(areas, filterFn, renderFn);
 }
 
 function main() {
