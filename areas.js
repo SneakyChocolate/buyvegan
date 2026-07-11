@@ -80,7 +80,7 @@ let rectangles = [
 	
 	]),
 	new Area(1118, 406, 54, 20, "obst", [
-		Product.both("Apfel"), Product.both("Banane"),
+		Product.both("Apfel"), Product.both("Himbeere"),
 	]),
 	new Area(1174, 406, 54, 20, "nuesse", [
 	
@@ -95,7 +95,7 @@ let rectangles = [
 	
 	]),
 	new Area(1108, 452, 18, 56, "bananen", [
-	
+		Product.both("Banane"),
 	]),
 	new Area(1172, 452, 20, 56, "kartoffeln", [
 	
