@@ -5,12 +5,12 @@ function round(v, r) {
 }
 
 /// canvas ctx Reference<number> number
-function render(canvas, ctx, selected, scale) {
+function render(areas, canvas, ctx, selected, scale) {
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 	ctx.lineWidth = 1;
 
-	rectangles.forEach((rect, index) => {
+	areas.forEach((rect, index) => {
 		if (selected.ref == index) {
 			ctx.strokeStyle = "rgba(0, 255, 0, 1.0)"; 
 			ctx.fillStyle = "rgba(0, 255, 0, 0.5)";
@@ -41,35 +41,41 @@ class Reference {
 }
 
 /// Reference<number>, number, canvas, ctx, number
-function changeSelected(selected, value, canvas, ctx, scale) {
+function changeSelected(areas, selected, value, canvas, ctx, scale) {
 	selected.ref = value;
-	render(canvas, ctx, selected, scale);
+	render(areas, canvas, ctx, selected, scale);
 }
 
-function main() {
-	const selected = new Reference(0);
-	const canvas = document.getElementById('myCanvas');
-	const ctx = canvas.getContext('2d');
-	let scale = 0.25;
-
-	let min = getMin(rectangles);
-	let max = getMax(rectangles);
+/// canvas []Area number
+function canvasToContent(canvas, areas, scale) {
+	let min = getMin(areas);
+	let max = getMax(areas);
 	let diff = [
 		max[0] - min[0],
 		max[1] - min[1],
 	];
-	for (let i = 0; i < rectangles.length; i ++) {
-		rectangles[i].x -= min[0];
-		rectangles[i].y -= min[1];
+	for (let i = 0; i < areas.length; i ++) {
+		areas[i].x -= min[0];
+		areas[i].y -= min[1];
 	}
 
 	canvas.width = diff[0] * scale;
 	canvas.height = diff[1] * scale;
-	
-	render(canvas, ctx, selected, scale);
+}
 
-	changeSelected(selected, 5, canvas, ctx, scale);
-	changeSelected(selected, 9, canvas, ctx, scale);
+function main() {
+	const selected = new Reference(0);
+	const canvas = document.getElementById("myCanvas");
+	const ctx = canvas.getContext("2d");
+	const finderInput = document.getElementById("finderInput");
+
+	let scale = 0.25;
+
+	canvasToContent(canvas, areas, scale)
+	render(areas, canvas, ctx, selected, scale);
+
+	changeSelected(areas, selected, 5, canvas, ctx, scale);
+	changeSelected(areas, selected, 9, canvas, ctx, scale);
 }
 
 // last thing that should be executed #######################

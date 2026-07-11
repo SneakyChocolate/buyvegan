@@ -39,10 +39,10 @@ class Area {
 }
 
 /// []Area -> [number, number]
-function getMin(rectangles) {
-	let x = rectangles[0].x;
-	let y = rectangles[0].y;
-	rectangles.forEach(r => {
+function getMin(areas) {
+	let x = areas[0].x;
+	let y = areas[0].y;
+	areas.forEach(r => {
 		if (r.x < x) x = r.x;
 		if (r.y < y) y = r.y;
 	});
@@ -50,17 +50,17 @@ function getMin(rectangles) {
 }
 
 /// []Area -> [number, number]
-function getMax(rectangles) {
-	let x = rectangles[0].x + rectangles[0].w;
-	let y = rectangles[0].y + rectangles[0].h;
-	rectangles.forEach(r => {
+function getMax(areas) {
+	let x = areas[0].x + areas[0].w;
+	let y = areas[0].y + areas[0].h;
+	areas.forEach(r => {
 		if (r.x + r.w > x) x = r.x + r.w;
 		if (r.y + r.h > y) y = r.y + r.h;
 	});
 	return [x,y];
 }
 
-let rectangles = [
+let areas = [
 	new Area(766, 462, 98, 22, "gebaeck", [
 	
 	]),
