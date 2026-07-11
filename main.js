@@ -78,7 +78,14 @@ function findProducts(areas, filter, fn) {
 function renderFinderResults(div, areas, filter) {
 	findProducts(areas, filter, (i, product) => {
 		let p = document.createElement("p");
-		p.textContent = `${product.name} (${i})`;
+		let prefix = "";
+		if (product.vegan) {
+			prefix += "🌱";
+		}
+		if (product.glutenfree) {
+			prefix += "🌾";
+		}
+		p.textContent = `${prefix} ${product.name} (${i})`;
 		div.append(p);
 	})
 }
