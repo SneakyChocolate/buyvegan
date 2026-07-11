@@ -62,7 +62,11 @@ function getMax(areas) {
 
 let areas = [
 	new Area(766, 462, 98, 22, "gebaeck", [
-	
+		Product.none("Donuts"),
+		Product.vegan("Franzbrötchen"),
+		Product.vegan("Laugenbrötchen"),
+		Product.none("Baguette"),
+		Product.none("Apfeldreieck"),
 	]),
 	new Area(868, 426, 18, 56, "brot", [
 	
