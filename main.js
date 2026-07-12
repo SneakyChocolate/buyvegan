@@ -137,6 +137,8 @@ function main() {
 	const collectionGroup = document.getElementById("collection");
 	const itemCollection = document.getElementById("itemCollection");
 	const selectionGroup = document.getElementById("selection");
+	const exportButton = document.getElementById("exportButton");
+	const importButton = document.getElementById("importButton");
 
 	const collectionItems = [];
 
@@ -176,6 +178,12 @@ function main() {
 		collectionItems.forEach(c => {
 			itemCollection.append(c.element);
 		});
+	};
+	exportButton.onclick = (_) => {
+		exportData(collectionItems);
+	};
+	importButton.onclick = (_) => {
+		importData(collectionItems);
 	};
 }
 
