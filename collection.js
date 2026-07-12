@@ -1,10 +1,10 @@
 
 class CollectionItem {
-	/// number Product element []CollectionItem
-	constructor(areaIndex, product, collectionItems, areas, selected, canvas, ctx, scale) {
+	/// number Product element []CollectionItem []Area Reference<number> canvas ctx number number
+	constructor(areaIndex, product, collectionItems, areas, selected, canvas, ctx, scale, amount) {
 		this.product = product;
 		this.areaIndex = areaIndex;
-		this.amount = 1;
+		this.amount = amount;
 
 		let p = document.createElement("p");
 		p.textContent = `${this.product.toString()} (${this.amount}x)`;

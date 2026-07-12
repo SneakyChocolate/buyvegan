@@ -118,7 +118,7 @@ function renderFinderResults(div, areas, filter, collectionItems, itemCollection
 			if (existingCollectionItem !== null) {
 				existingCollectionItem.addAmount(1);
 			} else {
-				existingCollectionItem = new CollectionItem(i, product, collectionItems, areas, selected, canvas, ctx, scale);
+				existingCollectionItem = new CollectionItem(i, product, collectionItems, areas, selected, canvas, ctx, scale, 1);
 			}
 			p.textContent = `${product.toString()} (${existingCollectionItem.amount}x)`;
 		};
@@ -183,7 +183,7 @@ function main() {
 		exportData(collectionItems);
 	};
 	importButton.onclick = (_) => {
-		importData(collectionItems);
+		importData(collectionItems, areas, selected, canvas, ctx, scale);
 	};
 }
 

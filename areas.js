@@ -744,9 +744,9 @@ let areas = [
 		Product.both("Rewe Bio Mango Sorbet"),
 		Product.both("Bruno Gelato ACE Eis"),
 		Product.both("Little Moons Chocolate Mochi Eis"),
-		Product.both("Schokoeis"),
-		Product.both("Eis"),
-		Product.both("Fruchteis"),
+		Product.glutenfree("Schokoeis"),
+		Product.glutenfree("Eis"),
+		Product.glutenfree("Fruchteis"),
 	]),
 	new Area(418, 308, 22, 100, "kasse", [
 	
