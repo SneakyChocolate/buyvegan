@@ -154,7 +154,7 @@ function main() {
 		console.log(areas[selected.ref].description);
 	};
 	finderInput.oninput = (_) => {
-		renderFinderResults(finderResultsDiv, areas, finderInput.value);
+		renderFinderResults(finderResultsDiv, areas, finderInput.value, collectionItems, itemCollection);
 	};
 
 	selectionGroup.children[0].onclick = (_) => {
