@@ -102,7 +102,17 @@ function renderFinderResults(div, areas, filter, collectionItems, itemCollection
 		let p = document.createElement("p");
 		p.textContent = `${product.toString()} (${i})`;
 		p.onclick = (_) => {
-			new CollectionItem(i, product, itemCollection, collectionItems);
+			let existingCollectionItem = null;
+			collectionItems.forEach((collectionItem) => {
+				if (collectionItem.product === product) {
+					existingCollectionItem = collectionItem;
+				}
+			});
+			if (existingCollectionItem !== null) {
+				existingCollectionItem.addAmount(1);
+			} else {
+				new CollectionItem(i, product, itemCollection, collectionItems);
+			}
 		};
 		div.append(p);
 	};
