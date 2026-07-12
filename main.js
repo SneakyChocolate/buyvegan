@@ -77,7 +77,7 @@ function findProducts(areas, filterFn, fn) {
 }
 
 /// element []Area string
-function renderFinderResults(div, areas, filter, collectionItems, itemCollection) {
+function renderFinderResults(div, areas, filter, collectionItems, itemCollection, selected, canvas, ctx, scale) {
 	div.replaceChildren();
 	let filterFn = (name) => {
 		let simplifiedName = name
@@ -118,7 +118,7 @@ function renderFinderResults(div, areas, filter, collectionItems, itemCollection
 			if (existingCollectionItem !== null) {
 				existingCollectionItem.addAmount(1);
 			} else {
-				existingCollectionItem = new CollectionItem(i, product, itemCollection, collectionItems);
+				existingCollectionItem = new CollectionItem(i, product, itemCollection, collectionItems, areas, selected, canvas, ctx, scale);
 			}
 			p.textContent = `${product.toString()} (${existingCollectionItem.amount}x)`;
 		};
@@ -146,7 +146,7 @@ function main() {
 	render(areas, canvas, ctx, selected, scale);
 
 	changeSelected(areas, selected, 35, canvas, ctx, scale);
-	renderFinderResults(finderResultsDiv, areas, finderInput.value, collectionItems, itemCollection);
+	renderFinderResults(finderResultsDiv, areas, finderInput.value, collectionItems, itemCollection, selected, canvas, ctx, scale);
 
 	document.getElementById("inc").onclick = () => {
 		selected.ref += 1;
@@ -154,17 +154,19 @@ function main() {
 		console.log(areas[selected.ref].description);
 	};
 	finderInput.oninput = (_) => {
-		renderFinderResults(finderResultsDiv, areas, finderInput.value, collectionItems, itemCollection);
+		renderFinderResults(finderResultsDiv, areas, finderInput.value, collectionItems, itemCollection, selected, canvas, ctx, scale);
 	};
 
 	selectionGroup.children[0].onclick = (_) => {
 		finderGroup.style.display = 'block';
 		collectionGroup.style.display = 'none';
-		renderFinderResults(finderResultsDiv, areas, finderInput.value, collectionItems, itemCollection);
+		renderFinderResults(finderResultsDiv, areas, finderInput.value, collectionItems, itemCollection, selected, canvas, ctx, scale);
 	};
 	selectionGroup.children[1].onclick = (_) => {
 		finderGroup.style.display = 'none';
 		collectionGroup.style.display = 'block';
+		let index = collectionItems.length > 0 ? collectionItems[0].areaIndex : -1;
+		changeSelected(areas, selected, index, canvas, ctx, scale);
 	};
 }
 
