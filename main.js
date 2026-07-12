@@ -76,8 +76,19 @@ function findProducts(areas, filterFn, fn) {
 	}
 }
 
+/// Product []CollectionItem -> CollectionItem
+function checkExistingCollectionItem(product, collectionItems) {
+	let existingCollectionItem = null;
+	collectionItems.forEach((collectionItem) => {
+		if (collectionItem.product === product) {
+			existingCollectionItem = collectionItem;
+		}
+	});
+	return existingCollectionItem;
+};
+
 /// element []Area string
-function renderFinderResults(div, areas, filter, collectionItems, itemCollection, selected, canvas, ctx, scale) {
+function renderFinderResults(div, areas, filter, collectionItems, _itemCollection, selected, canvas, ctx, scale) {
 	div.replaceChildren();
 	let filterFn = (name) => {
 		let simplifiedName = name
@@ -98,16 +109,6 @@ function renderFinderResults(div, areas, filter, collectionItems, itemCollection
 		;
 		return simplifiedName.includes(simplifiedFilter);
 	};
-	/// Product []CollectionItem -> CollectionItem
-	let checkExistingCollectionItem = (product, collectionItems) => {
-		let existingCollectionItem = null;
-		collectionItems.forEach((collectionItem) => {
-			if (collectionItem.product === product) {
-				existingCollectionItem = collectionItem;
-			}
-		});
-		return existingCollectionItem;
-	};
 	let renderFn = (i, product) => {
 		let p = document.createElement("p");
 		let existingCollectionItem = checkExistingCollectionItem(product, collectionItems);
@@ -125,6 +126,17 @@ function renderFinderResults(div, areas, filter, collectionItems, itemCollection
 		div.append(p);
 	};
 	findProducts(areas, filterFn, renderFn);
+}
+
+function rebuildCollection(collectionItems, itemCollection) {
+	// sort the collectionItems and rebuild the collection tab
+	collectionItems.sort((a, b) => {
+		return a.areaIndex - b.areaIndex;
+	});
+	itemCollection.replaceChildren();
+	collectionItems.forEach(c => {
+		itemCollection.append(c.element);
+	});
 }
 
 function main() {
@@ -169,21 +181,13 @@ function main() {
 		collectionGroup.style.display = 'block';
 		let index = collectionItems.length > 0 ? collectionItems[0].areaIndex : -1;
 		changeSelected(areas, selected, index, canvas, ctx, scale);
-
-		// sort the collectionItems and rebuild the collection tab
-		collectionItems.sort((a, b) => {
-			return a.areaIndex - b.areaIndex;
-		});
-		itemCollection.replaceChildren();
-		collectionItems.forEach(c => {
-			itemCollection.append(c.element);
-		});
+		rebuildCollection(collectionItems, itemCollection);
 	};
 	exportButton.onclick = (_) => {
 		exportData(collectionItems);
 	};
 	importButton.onclick = (_) => {
-		importData(collectionItems, areas, selected, canvas, ctx, scale);
+		importData(collectionItems, areas, selected, canvas, ctx, scale, itemCollection, finderResultsDiv, finderInput.value);
 	};
 }
 

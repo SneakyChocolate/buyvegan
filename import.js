@@ -1,8 +1,6 @@
 
-// TODO reload finder page on import
-// TODO see for existing collectionitems first before creating new one
-/// []CollectionItem []Area Reference<number> canvas ctx number
-function importData(collectionItems, areas, selected, canvas, ctx, scale) {
+/// []CollectionItem []Area Reference<number> canvas ctx number fn([]CollectionItem element)
+function importData(collectionItems, areas, selected, canvas, ctx, scale, itemCollection, finderResultsDiv, finderInputValue) {
 	navigator.clipboard.readText()
 		.then((text) => {
 			try {
@@ -18,17 +16,26 @@ function importData(collectionItems, areas, selected, canvas, ctx, scale) {
 							}
 						);
 						if (product) {
-							new CollectionItem(
-								collectionItemData.areaIndex,
-								product,
-								collectionItems,
-								areas,
-								selected,
-								canvas,
-								ctx,
-								scale,
-								collectionItemData.amount
-							);
+							let existingCollectionItem = checkExistingCollectionItem(product, collectionItems);
+							if (existingCollectionItem) {
+								existingCollectionItem.addAmount(collectionItemData.amount);
+							} else {
+								new CollectionItem(
+									collectionItemData.areaIndex,
+									product,
+									collectionItems,
+									areas,
+									selected,
+									canvas,
+									ctx,
+									scale,
+									collectionItemData.amount
+								);
+							}
+							// reload collection page on import
+							rebuildCollection(collectionItems, itemCollection);
+							// reload finder page on import
+							renderFinderResults(finderResultsDiv, areas, finderInputValue, collectionItems, itemCollection, selected, canvas, ctx, scale);
 						}
 						else {
 							console.error("product not found for collection item data", collectionItemData);
