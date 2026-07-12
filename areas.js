@@ -323,7 +323,19 @@ let areas = [
 	
 	]),
 	new Area(1298, 318, 22, 58, "milch", [
-	
+		Products.both("Alpro Not Milk Haferdrink"),
+		Products.both("Alpro Barista Hafer"),
+		Products.both("Alpro Hafer ohne Zucker"),
+		Products.both("Alpro geröstete Mandeln ohne Zucker"),
+		Products.both("Alpro Soja Drik Protein"),
+		Products.both("Alpro Barista Kokos"),
+		Products.both("Alpro Barsita Mandel"),
+		Products.both("Oatly Haferdrik Vanille"),
+		Products.both("Oatly Barsita Kokos"),
+		Products.both("Oatly Barista Hafter Karamell"),
+		Products.both("Oatly Hafer Matcha"),
+		Products.both("Oatly Barsita Hafer Popcorn"),
+		Products.both("Oatly Hafer voll Hafer"),
 	]),
 	new Area(1342, 340, 58, 22, "zimtschnecken", [
 	
@@ -357,7 +369,9 @@ let areas = [
 		Products.both("Schlagfix Sprühfertig Schlagcreme"),
 	]),
 	new Area(1490, 146, 22, 58, "butter", [
-	
+		Products.both("Milram Schmand"),
+		Products.both("Rama Margarine"),
+		Products.both("Deli Reform Zwiebel Schmalz"),
 	]),
 	new Area(1488, 86, 24, 58, "grieschischer joghurt", [
 	
