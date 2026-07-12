@@ -98,21 +98,29 @@ function renderFinderResults(div, areas, filter, collectionItems, itemCollection
 		;
 		return simplifiedName.includes(simplifiedFilter);
 	};
+	/// Product []CollectionItem -> CollectionItem
+	let checkExistingCollectionItem = (product, collectionItems) => {
+		let existingCollectionItem = null;
+		collectionItems.forEach((collectionItem) => {
+			if (collectionItem.product === product) {
+				existingCollectionItem = collectionItem;
+			}
+		});
+		return existingCollectionItem;
+	};
 	let renderFn = (i, product) => {
 		let p = document.createElement("p");
-		p.textContent = `${product.toString()} (${i})`;
+		let existingCollectionItem = checkExistingCollectionItem(product, collectionItems);
+		let amount = existingCollectionItem !== null ? existingCollectionItem.amount : 0;
+		p.textContent = `${product.toString()} (${amount}x)`;
 		p.onclick = (_) => {
-			let existingCollectionItem = null;
-			collectionItems.forEach((collectionItem) => {
-				if (collectionItem.product === product) {
-					existingCollectionItem = collectionItem;
-				}
-			});
+			let existingCollectionItem = checkExistingCollectionItem(product, collectionItems);
 			if (existingCollectionItem !== null) {
 				existingCollectionItem.addAmount(1);
 			} else {
-				new CollectionItem(i, product, itemCollection, collectionItems);
+				existingCollectionItem = new CollectionItem(i, product, itemCollection, collectionItems);
 			}
+			p.textContent = `${product.toString()} (${existingCollectionItem.amount}x)`;
 		};
 		div.append(p);
 	};
@@ -152,6 +160,7 @@ function main() {
 	selectionGroup.children[0].onclick = (_) => {
 		finderGroup.style.display = 'block';
 		collectionGroup.style.display = 'none';
+		renderFinderResults(finderResultsDiv, areas, finderInput.value, collectionItems, itemCollection);
 	};
 	selectionGroup.children[1].onclick = (_) => {
 		finderGroup.style.display = 'none';
