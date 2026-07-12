@@ -123,6 +123,7 @@ let areas = [
 		Product.vegan("Tofu Natur"),
 		Product.vegan("Taifun Räuchertofu"),
 		Product.vegan("Räuchertofu"),
+		Product.both("Creme Vega"),
 	
 	]),
 	new Area(1064, 406, 52, 20, "obst", [
@@ -277,7 +278,7 @@ let areas = [
 	
 	]),
 	new Area(1066, 538, 56, 20, "kaese", [
-	
+		Products.both("Schlagfix Mascarpone"),
 	]),
 	new Area(1242, 458, 34, 42, "frischeteke", [
 	
@@ -349,10 +350,11 @@ let areas = [
 	
 	]),
 	new Area(1276, 240, 40, 20, "eier", [
-	
+		Products.glutenfree("Eier"),
 	]),
 	new Area(1300, 262, 18, 56, "schlagsahne", [
-	
+		Products.both("Schlagfix universele Schlagcreme"),
+		Products.both("Schlagfix Sprühfertig Schlagcreme"),
 	]),
 	new Area(1490, 146, 22, 58, "butter", [
 	
@@ -645,6 +647,9 @@ let areas = [
 		Product.both("Rewe Bio Mango Sorbet"),
 		Product.both("Bruno Gelato ACE Eis"),
 		Product.both("Little Moons Vhocolate Mochi"),
+		Product.both("Schokoeis"),
+		Product.both("Eis"),
+		Product.both("Fruchteis"),
 	]),
 	new Area(418, 308, 22, 100, "kasse", [
 	
@@ -740,10 +745,10 @@ let areas = [
 		Product.both("Apfelschorle"),
 	]),
 	new Area(122, 58, 56, 22, "wasser", [
-	
+		Product.both("Wasser"),
 	]),
 	new Area(64, 58, 56, 22, "wasser", [
-	
+		Product.both("Wasser"),
 	]),
 	new Area(50, 80, 20, 230, "energy", [
 	
