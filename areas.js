@@ -237,7 +237,18 @@ let areas = [
 	
 	]),
 	new Area(1048, 452, 22, 58, "tomaten", [
-	
+		Product.both("Tomaten"),
+		Product.both("Zwiebeln"),
+		Product.both("Bundmöhren"),
+		Product.both("Möhren"),
+		Product.both("Kartoffeln festkochend"),
+		Product.both("Lauchzwiebeln"),
+		Product.both("Radieschen"),
+		Product.both("Zwiebel rot"),
+		Product.both("Cherry Tomaten"),
+		Product.both("Kartoffeln mehligkochend"),
+		Product.both("Kohlrabi"),
+		Product.both("Blumenkohl weiß"),
 	]),
 	new Area(1108, 452, 18, 56, "bananen", [
 		Product.both("Apfel"), 
@@ -817,19 +828,23 @@ let areas = [
 	
 	]),
 	new Area(96, 162, 60, 22, "bier", [
-	
+		Product.both("Neumarkter Lammsbräu Bio Bier glutenfrei"),
+		Product.both("Bitburger Helles Lager Bier glutenfrei"),
 	]),
 	new Area(154, 164, 56, 20, "bier", [
-	
+		Product.both("Neumarkter Lammsbräu Bio Bier glutenfrei"),
+		Product.both("Bitburger Helles Lager Bier glutenfrei"),
 	]),
 	new Area(212, 164, 58, 22, "bier", [
-	
+		Product.both("Neumarkter Lammsbräu Bio Bier glutenfrei"),
+		Product.both("Bitburger Helles Lager Bier glutenfrei"),
 	]),
 	new Area(100, 220, 56, 24, "bier", [
 	
 	]),
 	new Area(156, 220, 60, 24, "bier", [
-	
+		Product.both("Neumarkter Lammsbräu Bio Bier glutenfrei"),
+		Product.both("Bitburger Helles Lager Bier glutenfrei"),
 	]),
 	new Area(214, 222, 62, 20, "bier", [
 	
