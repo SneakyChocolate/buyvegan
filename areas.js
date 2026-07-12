@@ -204,7 +204,18 @@ let areas = [
 		
 	]),
 	new Area(1174, 406, 54, 20, "nuesse", [
-	
+		Product.both("Rewe Bio Walnusskerne"),
+		Product.both("Seeberger Nusskernmischung"),
+		Product.both("Seeberger Mandeln"),
+		Product.both("Seeberger Haselnüsse"),
+		Product.both("Seeberger Mandeln geröstet"),
+		Product.both("Seeberger geprannte Mandeln"),
+		Product.both("Seeberger Studentenfutter"),
+		Product.both("Seeberger Cashewkerne"),
+		Product.both("Seeberger Pinienkerne"),
+		Product.both("Rewe Bio Kürbiskerne"),
+		Product.both("Seeberger Erdnüsse"),
+		Product.both("Seeberger Pistazien"),
 	]),
 	new Area(930, 454, 20, 56, "sushi", [
 	
@@ -614,13 +625,26 @@ let areas = [
 	
 	]),
 	new Area(428, 98, 24, 98, "pizzatk", [
-	
+		Product.vegan("Rewe Mini Pizza Pomodori"),
+		Product.vegan("Rewe Pizza Tonno"),
+		Product.none("TK Pizza"),
 	]),
 	new Area(406, 98, 22, 98, "pizzatk", [
-	
+		Product.vegan("Rewe Mini Pizza Pomodori"),
+		Product.vegan("Rewe Pizza Tonno"),
+		Product.none("TK Pizza"),
 	]),
 	new Area(324, 78, 24, 118, "eis", [
-	
+		Product.vegan("Rewe Bourbon Vanillee Eis"),
+		Product.both("Florida Eis Erdbeere"),
+		Product.both("Florida Eis Himbeere"),
+		Product.both("Florida Eis Mandarine"),
+		Product.vegan("Friends of Asisa Pfirsich Dessert"),
+		Product.vegan("Friends of Asisa Zitrone Dessert"),
+		Product.both("Langnese Capri Orangenfruchteis"),
+		Product.both("Rewe Bio Mango Sorbet"),
+		Product.both("Bruno Gelato ACE Eis"),
+		Product.both("Little Moons Vhocolate Mochi"),
 	]),
 	new Area(418, 308, 22, 100, "kasse", [
 	
