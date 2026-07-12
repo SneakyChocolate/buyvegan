@@ -118,7 +118,7 @@ function renderFinderResults(div, areas, filter, collectionItems, itemCollection
 			if (existingCollectionItem !== null) {
 				existingCollectionItem.addAmount(1);
 			} else {
-				existingCollectionItem = new CollectionItem(i, product, itemCollection, collectionItems, areas, selected, canvas, ctx, scale);
+				existingCollectionItem = new CollectionItem(i, product, collectionItems, areas, selected, canvas, ctx, scale);
 			}
 			p.textContent = `${product.toString()} (${existingCollectionItem.amount}x)`;
 		};
@@ -167,6 +167,15 @@ function main() {
 		collectionGroup.style.display = 'block';
 		let index = collectionItems.length > 0 ? collectionItems[0].areaIndex : -1;
 		changeSelected(areas, selected, index, canvas, ctx, scale);
+
+		// sort the collectionItems and rebuild the collection tab
+		collectionItems.sort((a, b) => {
+			return a.areaIndex - b.areaIndex;
+		});
+		itemCollection.replaceChildren();
+		collectionItems.forEach(c => {
+			itemCollection.append(c.element);
+		});
 	};
 }
 

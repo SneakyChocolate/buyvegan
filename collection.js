@@ -1,7 +1,7 @@
 
 class CollectionItem {
 	/// number Product element []CollectionItem
-	constructor(areaIndex, product, itemCollection, collectionItems, areas, selected, canvas, ctx, scale) {
+	constructor(areaIndex, product, collectionItems, areas, selected, canvas, ctx, scale) {
 		this.product = product;
 		this.areaIndex = areaIndex;
 		this.amount = 1;
@@ -18,7 +18,6 @@ class CollectionItem {
 			changeSelected(areas, selected, newSelected, canvas, ctx, scale);
 		};
 		this.element = p;
-		itemCollection.append(p);
 
 		collectionItems.push(this);
 	}
