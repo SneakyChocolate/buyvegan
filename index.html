@@ -4,47 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Canvas Rectangle Placer</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            background-color: #f0f2f5;
-            font-family: system-ui, -apple-system, sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        h1 {
-            color: #333;
-            margin-bottom: 10px;
-        }
-        p {
-            color: #666;
-            margin-bottom: 20px;
-        }
-        canvas {
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .stats {
-            margin-top: 15px;
-            font-weight: 600;
-            color: #444;
-        }
-    </style>
+    <link rel="stylesheet" href="./style.css">
 </head>
 <body>
 
     <h1>Buy Vegan</h1>
 
-    <div class="wrapper">
-        <canvas id="myCanvas"></canvas>
-    </div>
-    <button id="inc"></button>
 
     <div id="finder">
         <div id="finderResults"></div>
         <input type="text" id="finderInput">
+    </div>
+
+    <div id="collection" style="display: none">
+        <canvas id="myCanvas"></canvas>
+        <button id="inc"></button>
+    </div>
+
+    <div id="selection">
+        <button>finder</button>
+        <button>collection</button>
     </div>
 
 

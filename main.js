@@ -117,8 +117,11 @@ function main() {
 	const selected = new Reference(0);
 	const canvas = document.getElementById("myCanvas");
 	const ctx = canvas.getContext("2d");
+	const finderGroup = document.getElementById("finder");
 	const finderInput = document.getElementById("finderInput");
 	const finderResultsDiv = document.getElementById("finderResults");
+	const collectionGroup = document.getElementById("collection");
+	const selectionGroup = document.getElementById("selection");
 
 	let scale = 0.25;
 
@@ -133,8 +136,17 @@ function main() {
 		render(areas, canvas, ctx, selected, scale);
 		console.log(areas[selected.ref].description);
 	};
-	finderInput.oninput = (e) => {
+	finderInput.oninput = (_) => {
 		renderFinderResults(finderResultsDiv, areas, finderInput.value);
+	};
+
+	selectionGroup.children[0].onclick = (_) => {
+		finderGroup.style.display = 'block';
+		collectionGroup.style.display = 'none';
+	};
+	selectionGroup.children[1].onclick = (_) => {
+		finderGroup.style.display = 'none';
+		collectionGroup.style.display = 'block';
 	};
 }
 
