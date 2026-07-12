@@ -1,4 +1,7 @@
 
+// TODO reload finder page on import
+// TODO see for existing collectionitems first before creating new one
+/// []CollectionItem []Area Reference<number> canvas ctx number
 function importData(collectionItems, areas, selected, canvas, ctx, scale) {
 	navigator.clipboard.readText()
 		.then((text) => {
