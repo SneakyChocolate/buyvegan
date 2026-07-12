@@ -30,6 +30,17 @@ class Product {
 	static none(name) {
 		return new Product(name, false, false);
 	}
+
+	toString() {
+		let prefix = "";
+		if (this.vegan) {
+			prefix += "🌱";
+		}
+		if (this.glutenfree) {
+			prefix += "🌾";
+		}
+		return `${prefix} ${this.name}`;
+	}
 }
 
 class Area {

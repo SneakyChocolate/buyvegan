@@ -77,7 +77,7 @@ function findProducts(areas, filterFn, fn) {
 }
 
 /// element []Area string
-function renderFinderResults(div, areas, filter) {
+function renderFinderResults(div, areas, filter, collectionItems, itemCollection) {
 	div.replaceChildren();
 	let filterFn = (name) => {
 		let simplifiedName = name
@@ -100,14 +100,10 @@ function renderFinderResults(div, areas, filter) {
 	};
 	let renderFn = (i, product) => {
 		let p = document.createElement("p");
-		let prefix = "";
-		if (product.vegan) {
-			prefix += "🌱";
-		}
-		if (product.glutenfree) {
-			prefix += "🌾";
-		}
-		p.textContent = `${prefix} ${product.name} (${i})`;
+		p.textContent = `${product.toString()} (${i})`;
+		p.onclick = (_) => {
+			new CollectionItem(i, product, itemCollection, collectionItems);
+		};
 		div.append(p);
 	};
 	findProducts(areas, filterFn, renderFn);
@@ -121,7 +117,10 @@ function main() {
 	const finderInput = document.getElementById("finderInput");
 	const finderResultsDiv = document.getElementById("finderResults");
 	const collectionGroup = document.getElementById("collection");
+	const itemCollection = document.getElementById("itemCollection");
 	const selectionGroup = document.getElementById("selection");
+
+	const collectionItems = [];
 
 	let scale = 0.25;
 
@@ -129,7 +128,7 @@ function main() {
 	render(areas, canvas, ctx, selected, scale);
 
 	changeSelected(areas, selected, 35, canvas, ctx, scale);
-	renderFinderResults(finderResultsDiv, areas, finderInput.value);
+	renderFinderResults(finderResultsDiv, areas, finderInput.value, collectionItems, itemCollection);
 
 	document.getElementById("inc").onclick = () => {
 		selected.ref += 1;
