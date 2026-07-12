@@ -135,6 +135,7 @@ let areas = [
 		Product.vegan("Taifun Räuchertofu"),
 		Product.vegan("Räuchertofu"),
 		Product.both("Creme Vega"),
+		Product.glutenfree("Eberswalder Würstchen Vegetarios"),
 	
 	]),
 	new Area(1064, 406, 52, 20, "obst", [
@@ -346,7 +347,7 @@ let areas = [
 		Product.both("Milch Oatly Barista Hafter Karamell"),
 		Product.both("Milch Oatly Hafer Matcha"),
 		Product.both("Milch Oatly Barsita Hafer Popcorn"),
-		Product.both("Milch Oatly Hafer voll Hafer"),
+		Product.glutenfree("Frei laktosefreie Milch"),
 	]),
 	new Area(1342, 340, 58, 22, "zimtschnecken", [
 	
@@ -484,7 +485,35 @@ let areas = [
 	
 	]),
 	new Area(1040, 230, 22, 152, "glutenfrei", [
-	
+		Product.both("Rewe Spaghetti Nudeln glutenfrei"),
+		Product.both("Rewe Bio Reiswaffeln Zartbitter glutenfrei"),
+		Product.both("Schär XL Ciabatte Brot glutenfrei"),
+		Product.both("Rewe frei Saatenbrötchen glutenfrei"),
+		Product.both("Rewe frei Karottenbrot glutenfrei"),
+		Product.both("Rewe Fusilli Nudeln glutenfrei"),
+		Product.both("Hammermühle Bauernbrot glutenfrei"),
+		Product.both("Schär Landbrot glutenfrei"),
+		Product.glutenfree("Rewe frei Mini Brownnies glutenfrei"),
+		Product.both("Schär Salzbrezeln glutenfrei"),
+		Product.both("Schär Mehrkornbrötchen glutenfrei"),
+		Product.both("Schär Sauerteigbrot glutenfrei"),
+		Product.both("Schär Mini Baguette glutenfrei"),
+		Product.glutenfree("Leimer Paniermehl glutenfrei"),
+		Product.both("Schär Knusperbrot glutenfrei"),
+		Product.both("Schär Wraps glutenfrei"),
+		Product.glutenfree("Schär Waffel Snack glutenfrei"),
+		Product.both("Schär Focaccia brot glutenfrei"),
+		Product.both("Rewe frei pures Korn Brot glutenfrei"),
+		Product.both("Schär Vollkornbrot glutenfrei"),
+		Product.glutenfree("Schär Doppelkeks glutenfrei"),
+		Product.both("Schär Schoko Cookies glutenfrei"),
+		Product.glutenfree("Schär Pitas glutenfrei"),
+		Product.glutenfree("Hammermühle Mandeleines Küchlein glutenfrei"),
+		Product.glutenfree("Rewe frei Windbeutel glutenfrei"),
+		Product.both("Schär Hamburger Brötchen glutenfrei"),
+		Product.both("glutenfrei Mehl"),
+		Product.both("Weinstein Backpulverglutenfrei"),
+		Product.both("Zwieback glutenfrei"),
 	]),
 	new Area(1062, 380, 56, 24, "oel", [
 	
